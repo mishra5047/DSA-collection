@@ -16,4 +16,17 @@ public class LinkedListReverse {
         node = prev;
         return node;
     }
+    
+    static Node reverseUsingRecursion(Node head)
+    {
+        if (head == null || head.next == null)
+            return head;
+
+        Node rest = reverseUsingRecursion(head.next);
+        head.next.next = head;
+ 
+        head.next = null;
+ 
+        return rest;
+    }
 }
