@@ -29,4 +29,15 @@ public class LinkedListReverse {
  
         return rest;
     }
+    
+    // function to print linkedlist
+    static void print()
+    {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
 }
