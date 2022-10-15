@@ -1,17 +1,13 @@
-package com.Anmol.Array;
+package com.Anmol.AVLTree;
 
 public class Main {
-
-    public static void main(final String[] args) {
-        final Array numbers = new Array(2);
-        numbers.insert(1);
-        numbers.insert(2);
-        numbers.insert(3);
-        numbers.insert(5);
-        numbers.insert(4);
-        numbers.removeAt(0);
-        numbers.print();
-        System.out.println(numbers.indexOf(21));
-        
+    public static void main(String args[]){
+        var tree = new AVLTree();
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(6);
+        tree.insert(45);
+        tree.insert(8);
+        tree.insert(9);
     }
 }
