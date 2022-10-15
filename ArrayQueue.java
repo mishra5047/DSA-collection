@@ -1,8 +1,12 @@
-package com.company;
+
+package com.Anmol.Queue;
+
 
 
 import java.util.Arrays;
 
+
+public class ArrayQueue {
 class Stack {
     private int top;
     private int[] stack;
@@ -54,19 +58,35 @@ class ArrayQueue {
         queue[rear] = element;
         rear = (rear + 1) % queue.length;
         count++;
+
     }
 
+
     public void dequeue() {
+
         if (count == 0)
             throw new IllegalStateException();
         var value = queue[front];
         queue[front] = 0;
         front = (front + 1) % queue.length;
         count--;
+
+        return value;
+    }
+
+    public int peek() {
+        if (front == rear)
+            throw new IllegalStateException();
+        return queue[front];
     }
 
     public boolean isEmpty() {
         return count == 0;
+    }
+
+
+    public boolean isFull() {
+        return count == queue.length;
     }
 
     @Override
@@ -78,7 +98,6 @@ class ArrayQueue {
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
         System.out.println("\nStack Operation");
         Stack stack = new Stack(5);
         System.out.println("Stack before Operations : " + stack);
