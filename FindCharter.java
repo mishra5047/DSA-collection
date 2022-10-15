@@ -1,36 +1,22 @@
-package com.Anmol.Set;
+package com.Anmol.HashTable;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FindCharter {
-  Set<Character> charSet = new HashSet<>();
-  Set<Character> charRepeat = new HashSet<>();
-
-  public char findFirstNonRepeatedChar(String str) {
-    char[] chars = str.toCharArray();
-    for (char ch : chars) {
-      if (charSet.contains(ch)) {
-        charSet.remove(ch);
-        charRepeat.add(ch);
-      } else charSet.add(ch);
+    char findCharter(String str) {
+        int count;
+        Map<Character, Integer> charMap = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for (char ch : chars) {
+            count = charMap.getOrDefault(ch, 0);
+            charMap.put(ch, count + 1);
+        }
+        for (char ch : chars) {
+            count = charMap.get(ch);
+            if (count == 1)
+                return ch;
+        }
+        return Character.MIN_VALUE;
     }
-
-    for (char ch : chars) {
-      if (charSet.contains(ch))
-        return ch;
-    }
-    return Character.MIN_VALUE;
-  }
-
-  public char findFirstRepeatedChar(String str) {
-    Set<Character> set = new HashSet<>();
-
-    for (char ch : str.toCharArray()) {
-      if (set.contains(ch))
-        return ch;
-      set.add(ch);
-    }
-    return Character.MIN_VALUE;
-  }
 }
